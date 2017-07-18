@@ -30,6 +30,45 @@ data:{
 }
 ```
 
+###  获取用户列表
+
+#### 传入参数
+
+```
+data:{
+  c:'carcooladminapi',
+  m:'getuserlist',
+  ts:+ new Date(),
+  page:1
+}
+```
+
+#### 返回参数
+
+```
+data: {
+	list: [
+		{
+			id: "12",
+			open_id: "oCuLv0GnvwF3rAi-HInXBdekealo",
+			user_name: "路遥",
+			user_photo: "https://wx.qlogo.cn/mmopen/vi_32/ia3D7VYPwKffA3Hjic2jN4epJ0fklGpQ4bPic2fKgah4H3N70LLb3wlAekjibobhmxE8L6FNQKMB3Xefzicz55zbfXg/0",
+			user_content: "汕头到莆田求15米冷藏！！ 山东滨州到福州求15米冷藏！！ 山东菏泽到福州求15米冷藏！！ 福建龙岩到三明求15米冷藏！！ 18259002899",
+			add_time: "2017-07-14 15:57:38",
+			click_phone: "0",
+			form_id: "d25010ec86f7d276ae8e15813119724c",
+			status: "1",
+			position: 2,		用户是车主还是货主
+			userTotal: 4,		货源总数
+			user_phone: [
+				"18259002899"	电话
+			]
+		}
+	],
+	total: 1        用户总数
+}
+```
+
 ###  获取黑名单用户
 
 #### 传入参数
@@ -151,4 +190,38 @@ data:{
 		total: 604   删除货源总数
 	}
 }
+```
+###  获取全部货源
+
+#### 传入参数
+```
+data:{
+  c:'carcooladminapi',
+  m:'getlist',
+  ts:+ new Date(),
+  page:1
+}
+```
+
+#### 返回参数
+```
+"data": {
+"info": 1,
+"list": [
+  {
+    "id": "20",
+    "open_id": "amlzdXBlaV9qaW5wZW5nd3VsaXU=",
+    "user_name": "金鹏物流",
+    "user_photo": "https://s.kcimg.cn/gisopic/avatar/veimg-30.jpg",
+    "user_content": "所谓冷藏物流是冷冻冷藏类物品在生产、冷库仓储、运输管理、配送管理、销售过程中，直至终端消费者手中的每一个环节始终都保持物品所需的低温或恒温温度环境，目的是保持物品原有的品质，减少物品损耗的一项系统工程。它是随着科学技术的进步、管理技术的完善和制冷技术的发展而建立起来的，",
+    "add_time": "1500368705",
+    "click_phone": "0",
+    "form_id": "",
+    "status": "1",
+    "phone_num": [
+      []
+    ]
+  },
+  "total": 9
+]
 ```
