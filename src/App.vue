@@ -2,9 +2,9 @@
   <div id="app" class="layout">
     <Row type="flex" class="row">
       <i-col span="5" class="layout-menu-left">
-        <Menu active-name="1-2" theme="dark" width="auto" :open-names="['1']">
+        <Menu active-name="select" theme="dark" width="auto" :open-names="['1']">
           <div class="layout-logo-left">冷藏后台系统</div>
-          <Menu-item name="1">
+          <Menu-item name="1" @click.native="toRepublish">
             <Icon type="ios-navigate"></Icon>
             <span class="layout-text">发布货源</span>
           </Menu-item>
@@ -13,12 +13,12 @@
                 <Icon type="ios-keypad"></Icon>
                 操作管理
             </template>
-            <Menu-item name="2-1">用户管理</Menu-item>
-            <Menu-item name="2-2">黑名单</Menu-item>
-            <Menu-item name="2-3">已删除货源</Menu-item>
-            <Menu-item name="2-4">全部货源</Menu-item>
+            <Menu-item name="2-1" @click.native="userManage">用户管理</Menu-item>
+            <Menu-item name="2-2" @click.native="toBlacklist">黑名单</Menu-item>
+            <Menu-item name="2-3" @click.native="toDeleteList">已删除货源</Menu-item>
+            <Menu-item name="2-4" @click.native="toAllList">全部货源</Menu-item>
           </Submenu>
-          <Menu-item name="3">
+          <Menu-item name="3" @click.native="toAnalytics">
             <Icon type="ios-analytics"></Icon>
             <span class="layout-text">数据统计</span>
           </Menu-item>
@@ -37,7 +37,47 @@
 
 <script>
 export default {
-  name: 'app'
+  data: () => ({
+    select: 1
+  }),
+  mounted() {
+    let name = this.$route.name
+    switch (name) {
+      case 'Republish':
+        this.select = 1
+        break
+      case 'BlackList':
+        this.select = '2-2'
+      case 'DeleteList':
+        this.select = '2-3'
+      case 'AllList':
+        this.select = '2-4'
+      case 'Analytics':
+        this.select = 3
+      default:
+        this.select = '2-1'
+    }
+  },
+  methods: {
+    toRepublish() {
+      this.$router.push('/')
+    },
+    userManage () {
+      this.$router.push('/operation')
+    },
+    toBlacklist () {
+      this.$router.push('/blackList')
+    },
+    toDeleteList () {
+      this.$router.push('/deleteList')
+    },
+    toAllList () {
+      this.$router.push('/allList')
+    },
+    toAnalytics () {
+      this.$router.push('/analytics')
+    },
+  }
 }
 </script>
 
