@@ -40,7 +40,7 @@ export default {
   data: () => ({
     select: 1
   }),
-  mounted() {
+  mounted () {
     let name = this.$route.name
     switch (name) {
       case 'Republish':
@@ -48,18 +48,22 @@ export default {
         break
       case 'BlackList':
         this.select = '2-2'
+        break
       case 'DeleteList':
         this.select = '2-3'
+        break
       case 'AllList':
         this.select = '2-4'
+        break
       case 'Analytics':
         this.select = 3
+        break
       default:
         this.select = '2-1'
     }
   },
   methods: {
-    toRepublish() {
+    toRepublish () {
       this.$router.push('/')
     },
     userManage () {
@@ -76,7 +80,7 @@ export default {
     },
     toAnalytics () {
       this.$router.push('/analytics')
-    },
+    }
   }
 }
 </script>
